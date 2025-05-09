@@ -36,16 +36,21 @@ public class Equacao {
         return (double) (Math.pow(b, 2) - (4*a*c));
     }
 
-    public double retornaX1 (){ //método para calcular a primeira raiz
-        double d = delta();
-        return (double) ((-b + Math.sqrt(d)) / (2*a));
+   public double retornaX1() {
+    double d = delta();
+    if (d < 0) {
+        throw new ArithmeticException("Delta negativo. Raízes imaginárias.");
     }
+    return (-b + Math.sqrt(d)) / (2 * a);
+}
 
-    public double retornaX2 (){ //método para calcular a segunda raiz
-        double d = delta();
-        return (double) ((-b - Math.sqrt(d)) / (2*a));
+public double retornaX2() {
+    double d = delta();
+    if (d < 0) {
+        throw new ArithmeticException("Delta negativo. Raízes imaginárias.");
     }
-
+    return (-b - Math.sqrt(d)) / (2 * a);
+}
     public static void main(String[] args) throws Exception {
 
         boolean continuar = true; //variável para definir se usuário deseja sair ou continuar após execução
